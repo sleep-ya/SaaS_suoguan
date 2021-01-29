@@ -1,0 +1,3717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试报告</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--    页面样式-->
+    <style type="text/css">
+        /*标题样式*/
+        .title {
+            width: auto;
+            height: 60px;
+            text-align: center;
+            font: bolder 38px/60px "Microsoft YaHei UI";
+        }
+
+        /*汇总信息样式*/
+        .summary {
+            width: 90%;
+            position: absolute;
+            top: 120px;
+            margin-left: 5%;
+
+        }
+
+        .text-left {
+            font: bolder 20px/30px "Microsoft YaHei UI";
+        }
+
+        .left {
+            width: 50%;
+            float: left;
+
+        }
+
+        .right {
+            width: 50%;
+            float: right;
+
+        }
+
+        .desc {
+            float: left;
+            width: 100%;
+        }
+
+        .list-group-item span {
+            font: normal 16px/38px "Microsoft YaHei UI";
+            padding: 30px;
+
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: .4rem 1.25rem;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        /* 执行信息样式   */
+        .test_info {
+            width: 90%;
+            position: absolute;
+            top: 900px;
+            margin-left: 5%;
+
+            color: #28a745 !important;
+        }
+
+        .table td, th {
+            border: solid 2px rgba(9, 122, 51, 0.11) !important;
+            padding: 0;
+            line-height: 40px;
+            text-align: center;
+
+        }
+
+
+        select {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            height: 2em;
+            width: 8em;
+            margin-left: 2em;
+        }
+
+        option {
+            text-align: center;
+            height: 36px;
+            font: none 18px/36px "Microsoft YaHei UI";
+            color: #28a745 !important;
+        }
+
+        .test_log {
+            background: rgba(163, 171, 189, 0.15);
+            width: 100%;
+            height: 50px;
+            border-top: none;
+            border-bottom: none;
+            display: none;
+            text-align: left;
+        }
+
+        .test_log td {
+            text-align: left;
+            height: 30px;
+            margin: 0;
+            padding-left: 3em;
+            padding-right:3em;
+            font: none 18px/24px "Microsoft YaHei UI";
+            color: #9e141a;
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /*    测试图表显示*/
+        .char {
+            width: 90%;
+            position: absolute;
+            top: 450px;
+            margin-left: 5%;
+            color: #28a745 !important;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!--报告标题-->
+<div class="title text-success">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">锁管测试报告v1</div>
+</div>
+
+<!--汇总信息-->
+<div class="summary">
+    <p class="text-left text-success">测试结果汇总</p>
+    <div class="left">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">测试人员</button>
+                <span class="text-dark">李谱</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">开始时间</button>
+                <span class="text-dark">2021-01-28 00:18:32</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">执行时间</button>
+                <span class="text-dark">691.18 S</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">用例总数</button>
+                <span class="text-dark">86</span>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="right">
+        <ul class="list-group">
+
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">成功用例</button>
+                <span class="text-success">53</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-danger">失败用例</button>
+                <span class="text-warning">3</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-warning">错误用例</button>
+                <span class="text-danger">30</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-secondary">跳过用例</button>
+                <span class="text-secondary">0</span>
+            </li>
+        </ul>
+    </div>
+    <div class="desc">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">描述信息</button>
+                <span class="text-secondary">XX项目测试生产的报告</span>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<!--测试图表-->
+<div class="char">
+    <p class="text-left text-success">图表展示</p>
+    <div id="char2" style="width: 49%;height: 400px;float: left"></div>
+    <div id="char" style="width: 49%;height: 400px ;float: left"></div>
+</div>
+
+<!--详细信息-->
+<div class="test_info">
+
+    <p class="text-left text-success">详细信息</p>
+    <div class="table_data">
+
+        <table class="table">
+            <thead class="bg-success text-light">
+            <tr>
+                <th scope="col" style="width: 5%;padding: 0">编号</th>
+                <th scope="col" style="width: 20%;padding: 0">
+                    <span>测试类</span>
+                    <select id="testClass">
+                        <option>所有</option>
+                        
+                            <option>TestRegister</option>
+                        
+                            <option>TestNBNewPassword</option>
+                        
+                            <option>TestNBNewPassword</option>
+                        
+                            <option>TestNBNewPassword</option>
+                        
+                            <option>TestNBNewPassword</option>
+                        
+                            <option>TestNBNewPassword</option>
+                        
+                            <option>_FailedTest</option>
+                        
+                            <option>TestNBdeleteTheAuthorized</option>
+                        
+                            <option>TestNBdeleteTheAuthorized</option>
+                        
+                            <option>TestNBGrantColumnList</option>
+                        
+                            <option>TestNBauthorizationListDetails</option>
+                        
+                            <option>TestNBfreezeAuthorization</option>
+                        
+                            <option>TestNBNewPassword</option>
+                        
+                            <option>TestNBfreezeLooks</option>
+                        
+                            <option>TestNBmodityAuthorizationTime</option>
+                        
+                            <option>TestLKpagingList</option>
+                        
+                            <option>TestLKaSingleQuery</option>
+                        
+                            <option>TestLKTheNewLock</option>
+                        
+                            <option>TestLKRemoveTheDoor</option>
+                        
+                    </select>
+
+                </th>
+
+                <th scope="col" style="width: 15%;padding: 0">测试方法</th>
+                <th scope="col" style="width: 20%;padding: 0">用例描述</th>
+                <th scope="col" style="width: 10%;padding: 0">执行时间</th>
+                <th scope="col" style="width: 20%;padding: 0">
+
+                    <span>执行结果</span>
+                    <select id="testResult">
+                        <option>所有</option>
+                        <option class="text-success">成功</option>
+                        <option class="text-danger">失败</option>
+                        <option class="text-warning">错误</option>
+                        <option class="text-info">跳过</option>
+                    </select>
+
+                </th>
+                <th scope="col" style="width: 10%;padding: 0">详细信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <td>1</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_01</td>
+                    <td>登录</td>
+                    <td>0.104s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_register_01 (test_01register.TestRegister)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_02</td>
+                    <td>None</td>
+                    <td>0.001s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_02 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_03</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_03 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_04</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_04 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_05</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_05 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_06</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_06 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_07</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_07 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_08</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_08 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_09</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_09 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_10</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_10 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>11</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_11</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_11 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>12</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_12</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_12 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>13</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_13</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_13 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>14</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_14</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_14 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>15</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_15</td>
+                    <td>None</td>
+                    <td>0.000997s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_15 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>16</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_16</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_16 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>17</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_17</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_17 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>18</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_18</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_18 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>19</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_19</td>
+                    <td>None</td>
+                    <td>0.000998s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_19 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>20</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_20</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_20 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>21</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_21</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_21 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>22</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_22</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_22 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>23</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_23</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_23 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>24</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_24</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_24 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>25</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_25</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_25 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>26</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_26</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_26 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>27</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_27</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_27 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>28</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_28</td>
+                    <td>None</td>
+                    <td>0.000997s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_28 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>29</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_29</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_29 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>30</td>
+                    <td class="TestRegister">TestRegister</td>
+                    <td>test_register_30</td>
+                    <td>None</td>
+                    <td>0.0s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_01register.py", line 39, in test_register
+    url = self.base_url + item["url"]
+</pre>
+                        
+
+                            <pre>TypeError: can only concatenate str (not "NoneType") to str
+</pre>
+                        
+
+                            <pre>test_register_30 (test_01register.TestRegister)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>31</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_01</td>
+                    <td>NB授权-普通用户新增-密码</td>
+                    <td>0.71s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_01 (test_02NB_new_password.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>32</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_01</td>
+                    <td>NB授权-管理员用户新增-密码</td>
+                    <td>0.479s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_01 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>33</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_02</td>
+                    <td>NB授权-普通用户新增-密码</td>
+                    <td>0.472s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_02 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>34</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_03</td>
+                    <td>NB授权-临时用户新增-密码</td>
+                    <td>0.488s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_03 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>35</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_04</td>
+                    <td>NB授权-劫持用户新增-密码</td>
+                    <td>0.46s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_04 (test_02NB_new_password_01.TestNBNewPassword)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 86, in test_nb_new_password
+    raise e
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 80, in test_nb_new_password
+    self.assertDictIn(expected, res)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 101, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+</pre>
+                        
+
+                            <pre>AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>36</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_05</td>
+                    <td>NB授权-管理员新增-IC卡</td>
+                    <td>0.488s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_05 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>37</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_06</td>
+                    <td>NB授权-普通用户新增-IC卡</td>
+                    <td>0.477s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_06 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>38</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_07</td>
+                    <td>NB授权-临时用户新增-IC卡</td>
+                    <td>0.486s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_07 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>39</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_08</td>
+                    <td>NB授权-劫持用户新增-IC卡</td>
+                    <td>0.552s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_08 (test_02NB_new_password_01.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>40</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_01</td>
+                    <td>NB授权-管理员新增-指纹</td>
+                    <td>0.456s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_01 (test_02NB_new_password_02.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>41</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_02</td>
+                    <td>NB授权-普通用户新增-指纹</td>
+                    <td>0.385s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_02 (test_02NB_new_password_02.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>42</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_03</td>
+                    <td>NB授权-临时用户新增-指纹</td>
+                    <td>0.395s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_03 (test_02NB_new_password_02.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>43</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_04</td>
+                    <td>NB授权-劫持用户新增-指纹</td>
+                    <td>0.378s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_04 (test_02NB_new_password_02.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>44</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_01</td>
+                    <td>NB授权_普通用户_时间过期</td>
+                    <td>0.47s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_01 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>45</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_02</td>
+                    <td>NB授权_普通用户_有效次数</td>
+                    <td>0.484s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_02 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>46</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_03</td>
+                    <td>NB授权_临时用户_时间过期</td>
+                    <td>0.494s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_03 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>47</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_04</td>
+                    <td>NB授权_临时用户_有效次数</td>
+                    <td>0.486s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_04 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>48</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_05</td>
+                    <td>NB授权-临时用户-待生效</td>
+                    <td>0.512s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_05 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>49</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_06</td>
+                    <td>NB授权-临时用户-有效次数-有效次数使用不能再次使用</td>
+                    <td>0.513s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_06 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>50</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_07</td>
+                    <td>NB授权-普通用户-有效次数-有效次数使用不能再次使用</td>
+                    <td>0.482s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_07 (test_02NB_new_password_03.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>51</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_01</td>
+                    <td>NB授权-普通用户新增-IC本地录入</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁，录入开锁信息,22s
+等待结束
+test_nb_new_password_01 (test_02NB_new_password_04.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>52</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_02</td>
+                    <td>NB授权-普通用户新增-指纹本地录入</td>
+                    <td>45.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁，录入开锁信息,45s
+等待结束
+test_nb_new_password_02 (test_02NB_new_password_04.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>53</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_03</td>
+                    <td>NB授权-临时用户新增-IC本地录入</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁，录入开锁信息,22s
+等待结束
+test_nb_new_password_03 (test_02NB_new_password_04.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>54</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_04</td>
+                    <td>NB授权-临时用户新增-指纹本地录入</td>
+                    <td>45.6s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁，录入开锁信息,45s
+等待结束
+test_nb_new_password_04 (test_02NB_new_password_04.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>55</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_05</td>
+                    <td>NB授权-普通用户新增-身份证本地录入</td>
+                    <td>22.6s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁，录入开锁信息,22s
+等待结束
+test_nb_new_password_05 (test_02NB_new_password_04.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>56</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_06</td>
+                    <td>NB授权-普通用户新增-非身份证本地校验</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁，录入开锁信息,22s
+等待结束
+test_nb_new_password_06 (test_02NB_new_password_04.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>57</td>
+                    <td class="_FailedTest">_FailedTest</td>
+                    <td>test_03NB_update_password</td>
+                    <td>None</td>
+                    <td>0.000643s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\loader.py", line 34, in testFailure
+    raise self._exception
+</pre>
+                        
+
+                            <pre>ImportError: Failed to import test module: test_03NB_update_password
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\loader.py", line 434, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\loader.py", line 375, in _get_module_from_name
+    __import__(name)
+  File "F:\86-code\suoguan\testcases\test_03NB_update_password.py", line 19, in <module>
+    class TestNBNewPassword(unittest.TestCase):
+  File "F:\86-code\suoguan\testcases\test_03NB_update_password.py", line 39, in TestNBNewPassword
+    cases=excel.read_data()
+  File "F:\86-code\suoguan\common\handle_excel.py", line 29, in read_data
+    sh = workbook[self.sheetname]
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\openpyxl\workbook\workbook.py", line 273, in __getitem__
+    raise KeyError("Worksheet {0} does not exist.".format(key))
+KeyError: 'Worksheet 03_nb_update_password_02 does not exist.'
+
+</pre>
+                        
+
+                            <pre>test_03NB_update_password (unittest.loader._FailedTest)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>58</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_01</td>
+                    <td>NB授权-临时用户新增-密码</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_01 (test_05NB_delete_the_authorized_01.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>59</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_02</td>
+                    <td>NB_删除授权</td>
+                    <td>22.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_02 (test_05NB_delete_the_authorized_01.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>60</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_03</td>
+                    <td>NB授权-普通用户新增-密码</td>
+                    <td>22.6s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_03 (test_05NB_delete_the_authorized_01.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>61</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_04</td>
+                    <td>NB_删除授权</td>
+                    <td>22.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_04 (test_05NB_delete_the_authorized_01.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>62</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_05</td>
+                    <td>NB授权-管理用户新增-密码</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_05 (test_05NB_delete_the_authorized_01.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>63</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_06</td>
+                    <td>NB_删除授权</td>
+                    <td>22.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_06 (test_05NB_delete_the_authorized_01.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>64</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_01</td>
+                    <td>NB授权-临时用户新增-密码</td>
+                    <td>22.7s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_01 (test_05NB_delete_the_authorized_02.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>65</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_02</td>
+                    <td>NB授权-临时用户新增-IC卡</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_02 (test_05NB_delete_the_authorized_02.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>66</td>
+                    <td class="TestNBdeleteTheAuthorized">TestNBdeleteTheAuthorized</td>
+                    <td>test_nb_delete_the_authorized_03</td>
+                    <td>NB_删除授权</td>
+                    <td>22.7s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_delete_the_authorized_03 (test_05NB_delete_the_authorized_02.TestNBdeleteTheAuthorized)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>67</td>
+                    <td class="TestNBGrantColumnList">TestNBGrantColumnList</td>
+                    <td>test_nb_grant_column_list_01</td>
+                    <td>NB_授权列表</td>
+                    <td>0.338s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_grant_column_list_01 (test_06NB_grant_column_list.TestNBGrantColumnList)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>68</td>
+                    <td class="TestNBauthorizationListDetails">TestNBauthorizationListDetails</td>
+                    <td>test_nb_authorization_list_details_01</td>
+                    <td>NB授权-临时用户新增-密码</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_01 (test_07NB_authorization_list_details.TestNBauthorizationListDetails)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>69</td>
+                    <td class="TestNBauthorizationListDetails">TestNBauthorizationListDetails</td>
+                    <td>test_nb_authorization_list_details_02</td>
+                    <td>NB授权-临时用户新增-IC卡</td>
+                    <td>23.7s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_02 (test_07NB_authorization_list_details.TestNBauthorizationListDetails)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>70</td>
+                    <td class="TestNBauthorizationListDetails">TestNBauthorizationListDetails</td>
+                    <td>test_nb_authorization_list_details_03</td>
+                    <td>NB授权-授权列表详情</td>
+                    <td>22.3s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_03 (test_07NB_authorization_list_details.TestNBauthorizationListDetails)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>71</td>
+                    <td class="TestNBauthorizationListDetails">TestNBauthorizationListDetails</td>
+                    <td>test_nb_authorization_list_details_04</td>
+                    <td>NB_删除授权</td>
+                    <td>22.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_04 (test_07NB_authorization_list_details.TestNBauthorizationListDetails)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>72</td>
+                    <td class="TestNBfreezeAuthorization">TestNBfreezeAuthorization</td>
+                    <td>test_nb_authorization_list_details_01</td>
+                    <td>NB授权-临时用户新增-密码</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_01 (test_09NB_freeze_authorization.TestNBfreezeAuthorization)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>73</td>
+                    <td class="TestNBfreezeAuthorization">TestNBfreezeAuthorization</td>
+                    <td>test_nb_authorization_list_details_02</td>
+                    <td>NB授权-临时用户新增-IC卡</td>
+                    <td>22.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_02 (test_09NB_freeze_authorization.TestNBfreezeAuthorization)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>74</td>
+                    <td class="TestNBfreezeAuthorization">TestNBfreezeAuthorization</td>
+                    <td>test_nb_authorization_list_details_03</td>
+                    <td>NB通讯-冻结授权</td>
+                    <td>22.6s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_03 (test_09NB_freeze_authorization.TestNBfreezeAuthorization)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>75</td>
+                    <td class="TestNBfreezeAuthorization">TestNBfreezeAuthorization</td>
+                    <td>test_nb_authorization_list_details_04</td>
+                    <td>NB通讯-解冻冻结</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_04 (test_09NB_freeze_authorization.TestNBfreezeAuthorization)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>76</td>
+                    <td class="TestNBfreezeAuthorization">TestNBfreezeAuthorization</td>
+                    <td>test_nb_authorization_list_details_05</td>
+                    <td>NB_删除授权</td>
+                    <td>22.7s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_list_details_05 (test_09NB_freeze_authorization.TestNBfreezeAuthorization)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>77</td>
+                    <td class="TestNBNewPassword">TestNBNewPassword</td>
+                    <td>test_nb_new_password_01</td>
+                    <td>删除全部授权</td>
+                    <td>0.452s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_nb_new_password_01 (test_11NB_delete_all_authorizations.TestNBNewPassword)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>78</td>
+                    <td class="TestNBfreezeLooks">TestNBfreezeLooks</td>
+                    <td>test_nb_authorization_looks_01</td>
+                    <td>NB授权-临时用户新增-密码</td>
+                    <td>22.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_looks_01 (test_12NB_freezing_locks.TestNBfreezeLooks)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>79</td>
+                    <td class="TestNBfreezeLooks">TestNBfreezeLooks</td>
+                    <td>test_nb_authorization_looks_02</td>
+                    <td>NB通讯-冻结门锁</td>
+                    <td>22.3s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_looks_02 (test_12NB_freezing_locks.TestNBfreezeLooks)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>80</td>
+                    <td class="TestNBfreezeLooks">TestNBfreezeLooks</td>
+                    <td>test_nb_authorization_looks_03</td>
+                    <td>NB通讯-解冻门锁</td>
+                    <td>22.3s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>请激活门锁22s
+等待结束
+test_nb_authorization_looks_03 (test_12NB_freezing_locks.TestNBfreezeLooks)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>81</td>
+                    <td class="TestNBmodityAuthorizationTime">TestNBmodityAuthorizationTime</td>
+                    <td>test_nb_modify_authorization_time_01</td>
+                    <td>NB授权-普通用户新增-密码</td>
+                    <td>22.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>__________________________________ {'authOperate': 1, 'endTime': '202106201148', 'fingerprintChecksums': '', 'imei': '869401040694457', 'password': '251250', 'startTime': '202101200120', 'userId': '', 'userType': 2, 'validCount': 9999, 'cardType': 0}
+请激活门锁22s
+等待结束
+test_nb_modify_authorization_time_01 (test_14NB_modify_authorization_time.TestNBmodityAuthorizationTime)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>82</td>
+                    <td class="TestNBmodityAuthorizationTime">TestNBmodityAuthorizationTime</td>
+                    <td>test_nb_modify_authorization_time_02</td>
+                    <td>NB授权-修改授权时间-密码</td>
+                    <td>0.324s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>__________________________________ {'userId': '451154C485CC4A87AC3C27387857477E', 'usePwId': '', 'type': 1, 'startTime': '202101271039', 'endTime': '202102271039'}
+test_nb_modify_authorization_time_02 (test_14NB_modify_authorization_time.TestNBmodityAuthorizationTime)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_14NB_modify_authorization_time.py", line 111, in test_nb_modify_authorization_time
+    raise e
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_14NB_modify_authorization_time.py", line 103, in test_nb_modify_authorization_time
+    self.assertDictIn(expected, res)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_14NB_modify_authorization_time.py", line 134, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+</pre>
+                        
+
+                            <pre>AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': -99, 'message': '内部异常', 'content': None}
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>83</td>
+                    <td class="TestLKpagingList">TestLKpagingList</td>
+                    <td>test_lk_paging_list_01</td>
+                    <td>门锁管理-分页列表</td>
+                    <td>0.233s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_lk_paging_list_01 (test_15LK_paging_list.TestLKpagingList)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>84</td>
+                    <td class="TestLKaSingleQuery">TestLKaSingleQuery</td>
+                    <td>test_lk_a_single_query_01</td>
+                    <td>门锁管理-单条查询</td>
+                    <td>0.198s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_lk_a_single_query_01 (test_16LK_a_single_query.TestLKaSingleQuery)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>85</td>
+                    <td class="TestLKTheNewLock">TestLKTheNewLock</td>
+                    <td>test_lk_remove_the_door_01</td>
+                    <td>门锁管理-删除门锁</td>
+                    <td>0.885s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_lk_remove_the_door_01 (test_17LK_the_new_lock.TestLKTheNewLock)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>86</td>
+                    <td class="TestLKRemoveTheDoor">TestLKRemoveTheDoor</td>
+                    <td>test_lk_remove_the_door_01</td>
+                    <td>门锁管理-删除门锁</td>
+                    <td>0.152s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>test_lk_remove_the_door_01 (test_18LK_remove_the_door.TestLKRemoveTheDoor)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\unittestreport\core\dataDriver.py", line 17, in wrapper
+    return func(self, params, *args, **kwargs)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_18LK_remove_the_door.py", line 98, in test_lk_remove_the_door
+    raise e
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_18LK_remove_the_door.py", line 89, in test_lk_remove_the_door
+    self.assertDictIn(expected, res)
+</pre>
+                        
+
+                            <pre>  File "F:\86-code\suoguan\testcases\test_18LK_remove_the_door.py", line 109, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+</pre>
+                        
+
+                            <pre>AssertionError: {'code': 0, 'message': '操作成功'} not in {'code': -1, 'message': '无权限操作', 'content': ''}
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+
+            </tbody>
+        </table>
+    </div>
+
+    <div style="height: 200px"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+<script>
+    var tbodyTr = $('tbody tr');
+    var testResult = $("#testResult");
+    var testClass = $("#testClass");
+    <!--    用例执行详细信息显示切换-->
+    $(".btn_info").click(function () {
+        $(this).parent().parent().next().toggle();
+
+    });
+    // 当选择用例类之后触发
+    testClass.change(function () {
+        var cls = $(this).val();
+        var res = testResult.val();
+        elementDisplay(cls, res);
+        sort()
+    });
+    testResult.change(function () {
+        var res = $(this).val();
+        var cls = testClass.val();
+        elementDisplay(cls, res);
+        sort()
+    });
+
+    function elementDisplay(cls, res) {
+        // 用例数据的显示
+        if (cls === "所有") {
+            if (res === "所有") {
+                tbodyTr.has('button').show();
+            } else if (res === '成功') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-success').show()
+
+            } else if (res === '失败') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-danger').show()
+
+            } else if (res === '错误') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-warning').show()
+
+            } else if (res === '跳过') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-info').show()
+            }
+        } else {
+            if (res === "所有") {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').show()
+            } else if (res === '成功') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-success').show()
+            } else if (res === '失败') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-danger').show()
+            } else if (res === '错误') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-warning').show()
+            } else if (res === '跳过') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-info').show()
+            }
+        }
+    }
+
+    function sort() {
+        //重新排列显示序号
+        // 选择所有可以见的tr
+        var visibleTr = tbodyTr.filter(":visible");
+
+        visibleTr.each(function (index, element) {
+            element.firstElementChild.innerHTML = index + 1;
+
+        })
+
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('char'));
+    var myChart2 = echarts.init(document.getElementById('char2'));
+    // 指定图表的配置项和数据
+    option = {
+        color: ['#00a10a', '#ddb518', 'rgba(204,46,41,0.73)', '#85898c'],
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 10,
+            data: ['通过', '失败', '错误', '跳过']
+        },
+        series: [
+            {
+                name: '测试结果',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    {value: 53, name: '通过'},
+                    {value: 3, name: '失败'},
+                    {value: 30, name: '错误'},
+                    {value: 0, name: '跳过'}
+                ]
+            }
+        ]
+    };
+    option2 = {
+        tooltip: {
+            formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        series: [
+            {
+                name: '测试结果',
+                type: 'gauge',
+                detail: {formatter: '61.63%'},
+                data: [{value: '61.63', name: '用例通过率'}],
+                axisLine: {
+                    lineStyle: {
+                        color: [
+                            [0.2, '#c20000'],
+                            [0.8, '#ddb518'],
+                            [1, '#00a10a']]
+                    }
+                }
+            }
+        ]
+    };
+
+
+    myChart2.setOption(option2);
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+
+</body>
+</html>
