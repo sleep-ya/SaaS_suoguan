@@ -16,7 +16,7 @@ from common.handle_conf import conf
 from common.handler_log import my_log
 
 @ddt
-class TestNBNewPassword(unittest.TestCase):
+class TestNBupdatePassword(unittest.TestCase):
     #____________________类级别前置获token____________________
     @classmethod
     def setUpClass(cls) -> None:
@@ -34,7 +34,7 @@ class TestNBNewPassword(unittest.TestCase):
         cls.token=headers
     #---------------------------------------------------
 
-    excel=HandleExcel(os.path.join(DATA_DIR,"apicases.xlsx"),"03_nb_update_password_02")
+    excel=HandleExcel(os.path.join(DATA_DIR,"apicases.xlsx"),"03_nb_update_password_01")
     #读取用例数据
     cases=excel.read_data()
     #项目的基本地址
@@ -46,19 +46,8 @@ class TestNBNewPassword(unittest.TestCase):
     ##所有开锁授权开始时间
     start_time=conf.get("time","startTime")
     end_time=conf.get("time","endTime180d")
-    endTime_expiration=conf.get("time","endTime_expiration")
-    toStartTheStartTime=conf.get("time","toStartTheStartTime")
-    toStartTheEndtTime=conf.get("time","toStartTheEndtTime")
-    #指纹包数据获取
-    fingerprint1=conf.get("password","fingerprint1")
-    fingerprint2=conf.get("password","fingerprint2")
-    fingerprint3=conf.get("password","fingerprint3")
-    fingerprint4=conf.get("password","fingerprint4")
     #实际门锁类型获取
     practical_lock_type=eval(conf.get("lock","lock_type"))
-    # ---------------------用例类级别前置--------------------------------
-    excel_preposition = HandleExcel(os.path.join(DATA_DIR, "apicases.xlsx"), "03_nb_update_password_01")
-    cases_preposition = excel_preposition.read_data()
 #注释1
     """
     @list_data(cases_preposition)
@@ -141,6 +130,8 @@ class TestNBNewPassword(unittest.TestCase):
                 raise e
             else:
                 my_log.info("用例--【{}】---执行通过".format(item['title']))
+                if item["case_id"]==1:
+                    time.sleep(22)
         else:
             my_log.info("用例--【{}】---无需执行".format(item['title']))
     def assertDictIn(self, expected, res):
@@ -150,4 +141,4 @@ class TestNBNewPassword(unittest.TestCase):
                 pass
             else:
                 raise AssertionError("{} not in {}".format(expected, res))
-#注释2
+

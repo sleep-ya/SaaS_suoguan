@@ -122,10 +122,10 @@ class TestNBmodityAuthorizationTime(unittest.TestCase):
                     print("等待结束")
         else:
             my_log.info("用例--【{}】---无需执行".format(item['title']))
-    #等待提示语
-    print("请激活设备，等待时间5s")
-    time.sleep(5)#这个是针对上一模块消耗所需时间
-    print("等待时间结束，门锁分页列表")#这条提示语是针对本模块
+    # #等待提示语
+    # print("请激活设备，等待时间5s")
+    # time.sleep(5)#这个是针对上一模块消耗所需时间
+    # print("等待时间结束，门锁分页列表")#这条提示语是针对本模块
     def assertDictIn(self, expected, res):
         for k, v in expected.items():
             if res.get(k) == v:

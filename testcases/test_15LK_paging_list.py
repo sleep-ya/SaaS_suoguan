@@ -4,7 +4,7 @@
 # @Email  :1285592010@qq.com
 # @File   : test_15LK_paging_list.py
 # @Software:PyCharm
-# @File name Translation:门锁分页列表（没问题）
+# @File name Translation:门锁分页列表
 import unittest
 import os
 import requests
@@ -27,15 +27,12 @@ class TestLKpagingList(unittest.TestCase):
         #2、请求登录接口
         response=requests.post(url=url,json=params)
         res=response.json()
-        print(res)
         #3、提取token，放到请求头中，给后面的用例使用
         token=jsonpath(res,"$..token")[0]
         headers={"token":""}
         headers['token']=token
         cls.token=headers
     #---------------------------------------------------
-
-
     excel=HandleExcel(os.path.join(DATA_DIR,"apicases.xlsx"),"15_lk_paging_list")
     #读取用例数据
     cases=excel.read_data()

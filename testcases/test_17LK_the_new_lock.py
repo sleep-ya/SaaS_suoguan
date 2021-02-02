@@ -4,7 +4,7 @@
 # @Email  :1285592010@qq.com
 # @File   : test_17LK_the_new_lock.py
 # @Software:PyCharm
-# @File name Translation:新增门锁（没问题）
+# @File name Translation:新增门锁0201
 import unittest
 import os
 import requests
@@ -65,7 +65,6 @@ class TestLKTheNewLock(unittest.TestCase):
                 orderId = str(self.id_1)
                 item['data'] = item['data'].replace('#orderId#',orderId)
             parms=eval(item["data"])
-            print(parms)
             #3）请求头
             #类级别前置以获取
             #4）获取请求方法

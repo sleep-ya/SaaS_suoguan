@@ -11484,3 +11484,213 @@ Traceback (most recent call last):
 AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': -99, 'message': '内部异常', 'content': None}
 2021-01-29 17:40:38,166 - [test_14NB_modify_authorization_time.py-->line:113] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
 2021-01-29 17:40:48,606 - [test_14NB_modify_authorization_time.py-->line:113] - INFO: 用例--【NB授权-修改授权时间-密码】---执行通过
+2021-02-01 14:42:43,081 - [test_01register.py-->line:60] - INFO: 用例--【登录】---执行通过
+2021-02-01 14:42:56,578 - [test_02NB_new_password.py-->line:90] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
+2021-02-01 14:46:02,045 - [test_01register.py-->line:60] - INFO: 用例--【登录】---执行通过
+2021-02-01 14:46:30,069 - [test_02NB_new_password.py-->line:90] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
+2021-02-01 14:47:41,192 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-管理员用户新增-密码】---执行通过
+2021-02-01 14:47:41,678 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
+2021-02-01 14:47:42,165 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-密码】---执行通过
+2021-02-01 14:47:42,637 - [test_02NB_new_password_01.py-->line:84] - ERROR: 用例--【NB授权-劫持用户新增-密码】---执行失败
+2021-02-01 14:47:42,638 - [test_02NB_new_password_01.py-->line:85] - ERROR: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+Traceback (most recent call last):
+  File "E:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 80, in test_nb_new_password
+    self.assertDictIn(expected, res)
+  File "E:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 101, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+2021-02-01 14:47:43,132 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-管理员新增-IC卡】---执行通过
+2021-02-01 14:47:43,613 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC卡】---执行通过
+2021-02-01 14:47:44,101 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC卡】---执行通过
+2021-02-01 14:47:44,576 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-劫持用户新增-IC卡】---执行通过
+2021-02-01 15:58:49,115 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 16:20:08,657 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-管理员用户新增-密码】---执行通过
+2021-02-01 16:20:09,124 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
+2021-02-01 16:20:10,583 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-密码】---执行通过
+2021-02-01 16:20:11,050 - [test_02NB_new_password_01.py-->line:84] - ERROR: 用例--【NB授权-劫持用户新增-密码】---执行失败
+2021-02-01 16:20:11,050 - [test_02NB_new_password_01.py-->line:85] - ERROR: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+Traceback (most recent call last):
+  File "E:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 80, in test_nb_new_password
+    self.assertDictIn(expected, res)
+  File "E:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 101, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+2021-02-01 16:20:11,525 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-管理员新增-IC卡】---执行通过
+2021-02-01 16:20:12,010 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC卡】---执行通过
+2021-02-01 16:20:12,467 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC卡】---执行通过
+2021-02-01 16:20:12,926 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-劫持用户新增-IC卡】---执行通过
+2021-02-01 16:25:14,631 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-管理员新增-指纹】---执行通过
+2021-02-01 16:25:15,132 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-普通用户新增-指纹】---执行通过
+2021-02-01 16:25:15,487 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-临时用户新增-指纹】---执行通过
+2021-02-01 16:25:15,850 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-劫持用户新增-指纹】---执行通过
+2021-02-01 16:26:24,986 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_普通用户_时间过期】---执行通过
+2021-02-01 16:26:25,448 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_普通用户_有效次数】---执行通过
+2021-02-01 16:26:25,907 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_临时用户_时间过期】---执行通过
+2021-02-01 16:26:26,375 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_临时用户_有效次数】---执行通过
+2021-02-01 16:26:26,850 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-临时用户-待生效】---执行通过
+2021-02-01 16:26:27,317 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-临时用户-有效次数-有效次数使用不能再次使用】---执行通过
+2021-02-01 16:26:27,804 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-普通用户-有效次数-有效次数使用不能再次使用】---执行通过
+2021-02-01 16:32:08,609 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 16:33:06,890 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_普通用户_时间过期】---执行通过
+2021-02-01 16:33:07,391 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_普通用户_有效次数】---执行通过
+2021-02-01 16:33:07,871 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_临时用户_时间过期】---执行通过
+2021-02-01 16:33:08,360 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_临时用户_有效次数】---执行通过
+2021-02-01 16:33:08,851 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-临时用户-待生效】---执行通过
+2021-02-01 16:33:09,337 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-临时用户-有效次数-有效次数使用不能再次使用】---执行通过
+2021-02-01 16:33:09,838 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-普通用户-有效次数-有效次数使用不能再次使用】---执行通过
+2021-02-01 16:46:58,810 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 16:47:46,114 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_普通用户_时间过期】---执行通过
+2021-02-01 16:47:46,650 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_普通用户_有效次数】---执行通过
+2021-02-01 16:47:47,113 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_临时用户_时间过期】---执行通过
+2021-02-01 16:47:47,608 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权_临时用户_有效次数】---执行通过
+2021-02-01 16:47:48,079 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-临时用户-待生效】---执行通过
+2021-02-01 16:47:48,579 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-临时用户-有效次数-有效次数使用不能再次使用】---执行通过
+2021-02-01 16:47:49,067 - [test_02NB_new_password_03.py-->line:118] - INFO: 用例--【NB授权-普通用户-有效次数-有效次数使用不能再次使用】---执行通过
+2021-02-01 16:57:54,664 - [test_02NB_new_password_04.py-->line:119] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 16:57:54,666 - [test_02NB_new_password_04.py-->line:133] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 16:57:55,172 - [test_02NB_new_password_04.py-->line:119] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 16:57:55,172 - [test_02NB_new_password_04.py-->line:133] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 16:57:55,776 - [test_02NB_new_password_04.py-->line:119] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 16:57:56,252 - [test_02NB_new_password_04.py-->line:119] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:06:27,197 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:06:27,200 - [test_02NB_new_password_04.py-->line:103] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:06:27,700 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:06:27,701 - [test_02NB_new_password_04.py-->line:103] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:06:28,182 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:06:28,655 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:07:02,208 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:07:02,208 - [test_02NB_new_password_04.py-->line:102] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:07:02,701 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:07:02,701 - [test_02NB_new_password_04.py-->line:102] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:07:03,293 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:07:04,212 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:11:27,215 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:11:27,216 - [test_02NB_new_password_04.py-->line:101] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:11:27,737 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:11:27,738 - [test_02NB_new_password_04.py-->line:101] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:11:28,222 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:11:28,724 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:12:13,640 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:12:13,642 - [test_02NB_new_password_04.py-->line:102] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:12:14,134 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:12:14,135 - [test_02NB_new_password_04.py-->line:102] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:12:14,623 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:12:15,109 - [test_02NB_new_password_04.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:13:42,270 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:14:02,772 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:14:02,776 - [test_02NB_new_password_04.py-->line:100] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:14:03,303 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:14:03,306 - [test_02NB_new_password_04.py-->line:100] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:14:03,815 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:14:04,332 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:15:11,775 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:15:11,792 - [test_02NB_new_password_04.py-->line:101] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:15:12,309 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:15:12,314 - [test_02NB_new_password_04.py-->line:101] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:15:12,833 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:15:13,354 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:16:00,014 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:16:22,016 - [test_02NB_new_password_04.py-->line:100] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:16:22,544 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:16:44,545 - [test_02NB_new_password_04.py-->line:100] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:16:45,042 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:17:07,543 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:20:09,936 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 17:23:05,580 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:23:27,582 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:23:28,033 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:23:50,036 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:23:50,482 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:24:12,942 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:25:16,788 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 17:26:45,453 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:27:07,456 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:27:07,948 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:27:29,951 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:27:30,445 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:27:52,929 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:31:32,181 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 17:32:16,732 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:32:38,734 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:32:39,209 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:33:01,209 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:33:01,708 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:33:24,199 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:34:46,181 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 17:35:22,977 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:35:24,615 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:35:46,616 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:35:47,837 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:36:09,838 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:36:10,322 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:36:32,810 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 17:37:03,781 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过
+2021-02-01 17:52:08,268 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-IC本地录入】---执行通过
+2021-02-01 17:52:30,271 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-普通用户新增-指纹本地录入】---无需执行
+2021-02-01 17:52:30,753 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-临时用户新增-IC本地录入】---执行通过
+2021-02-01 17:52:52,754 - [test_02NB_new_password_04.py-->line:99] - INFO: 用例--【NB授权-临时用户新增-指纹本地录入】---无需执行
+2021-02-01 17:52:53,222 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-身份证本地录入】---执行通过
+2021-02-01 17:53:15,701 - [test_02NB_new_password_04.py-->line:87] - INFO: 用例--【NB授权-普通用户新增-非身份证本地校验】---执行通过
+2021-02-01 18:13:22,914 - [test_03NB_update_password.py-->line:132] - INFO: 用例--【NB授权-临时用户新增-密码】---执行通过
+2021-02-01 18:13:44,986 - [test_03NB_update_password.py-->line:125] - ERROR: 用例--【NB授权-修改临时用户密码-密码】---执行失败
+2021-02-01 18:13:44,987 - [test_03NB_update_password.py-->line:128] - ERROR: {'code': 0, 'message': '操作成功。'} not in {'code': 206, 'message': '门锁用户不存在', 'content': ''}
+Traceback (most recent call last):
+  File "E:\86-code\suoguan\testcases\test_03NB_update_password.py", line 121, in test_nb_update_password
+    self.assertDictIn(expected, res)
+  File "E:\86-code\suoguan\testcases\test_03NB_update_password.py", line 143, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 206, 'message': '门锁用户不存在', 'content': ''}
+2021-02-01 18:18:21,619 - [test_18LK_remove_the_door.py-->line:99] - INFO: 用例--【门锁管理-删除门锁】---执行通过
+2021-02-01 18:18:30,843 - [test_17LK_the_new_lock.py-->line:94] - INFO: 用例--【门锁管理-门锁添加】---执行通过
+2021-02-01 18:18:36,741 - [test_16LK_a_single_query.py-->line:100] - INFO: 用例--【门锁管理-单条查询】---执行通过
+2021-02-01 18:18:48,333 - [test_18LK_remove_the_door.py-->line:99] - INFO: 用例--【门锁管理-删除门锁】---执行通过
+2021-02-01 18:18:56,285 - [test_17LK_the_new_lock.py-->line:94] - INFO: 用例--【门锁管理-门锁添加】---执行通过
+2021-02-01 18:19:17,326 - [test_17LK_the_new_lock.py-->line:86] - ERROR: 用例--【门锁管理-门锁添加】---执行失败
+2021-02-01 18:19:17,326 - [test_17LK_the_new_lock.py-->line:89] - ERROR: {'code': 0, 'message': '操作成功。'} not in {'code': 2010115, 'message': 'IMEI号已存在', 'content': ''}
+Traceback (most recent call last):
+  File "E:\86-code\suoguan\testcases\test_17LK_the_new_lock.py", line 82, in test_lk_remove_the_door
+    self.assertDictIn(expected, res)
+  File "E:\86-code\suoguan\testcases\test_17LK_the_new_lock.py", line 102, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 2010115, 'message': 'IMEI号已存在', 'content': ''}
+2021-02-01 18:19:26,078 - [test_18LK_remove_the_door.py-->line:99] - INFO: 用例--【门锁管理-删除门锁】---执行通过
+2021-02-01 18:19:32,262 - [test_17LK_the_new_lock.py-->line:93] - INFO: 用例--【门锁管理-门锁添加】---执行通过
+2021-02-01 18:22:59,705 - [test_16LK_a_single_query.py-->line:100] - INFO: 用例--【门锁管理-单条查询】---执行通过
+2021-02-01 18:27:04,111 - [test_16LK_a_single_query.py-->line:89] - INFO: 用例--【门锁管理-单条查询】---执行通过
+2021-02-01 18:27:56,025 - [test_16LK_a_single_query.py-->line:88] - INFO: 用例--【门锁管理-单条查询】---执行通过
+2021-02-01 18:28:47,218 - [test_16LK_a_single_query.py-->line:88] - INFO: 用例--【门锁管理-单条查询】---执行通过
+2021-02-01 18:29:05,749 - [test_15LK_paging_list.py-->line:88] - INFO: 用例--【门锁管理-分页列表】---执行通过
+2021-02-01 18:31:03,448 - [test_14NB_modify_authorization_time.py-->line:107] - ERROR: 用例--【NB授权-修改授权时间-密码】---执行失败
+2021-02-01 18:31:03,449 - [test_14NB_modify_authorization_time.py-->line:110] - ERROR: {'code': 0, 'message': '操作成功。'} not in {'code': 206, 'message': '门锁用户不存在', 'content': ''}
+Traceback (most recent call last):
+  File "E:\86-code\suoguan\testcases\test_14NB_modify_authorization_time.py", line 103, in test_nb_modify_authorization_time
+    self.assertDictIn(expected, res)
+  File "E:\86-code\suoguan\testcases\test_14NB_modify_authorization_time.py", line 134, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 206, 'message': '门锁用户不存在', 'content': ''}
+2021-02-02 14:22:17,747 - [test_01register.py-->line:60] - INFO: 用例--【登录】---执行通过
+2021-02-02 14:22:30,396 - [test_02NB_new_password.py-->line:90] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
+2021-02-02 14:23:16,084 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-管理员用户新增-密码】---执行通过
+2021-02-02 14:23:17,521 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-密码】---执行通过
+2021-02-02 14:23:19,287 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-密码】---执行通过
+2021-02-02 14:23:19,866 - [test_02NB_new_password_01.py-->line:84] - ERROR: 用例--【NB授权-劫持用户新增-密码】---执行失败
+2021-02-02 14:23:19,867 - [test_02NB_new_password_01.py-->line:85] - ERROR: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+Traceback (most recent call last):
+  File "E:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 80, in test_nb_new_password
+    self.assertDictIn(expected, res)
+  File "E:\86-code\suoguan\testcases\test_02NB_new_password_01.py", line 101, in assertDictIn
+    raise AssertionError("{} not in {}".format(expected, res))
+AssertionError: {'code': 0, 'message': '操作成功。'} not in {'code': 202, 'message': 'aep消息发送失败', 'content': ''}
+2021-02-02 14:23:20,556 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-管理员新增-IC卡】---执行通过
+2021-02-02 14:23:21,046 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-普通用户新增-IC卡】---执行通过
+2021-02-02 14:23:21,572 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-临时用户新增-IC卡】---执行通过
+2021-02-02 14:23:22,061 - [test_02NB_new_password_01.py-->line:88] - INFO: 用例--【NB授权-劫持用户新增-IC卡】---执行通过
+2021-02-02 14:31:52,835 - [test_02NB_new_password_02.py-->line:120] - INFO: 用例--【NB授权-管理员新增-指纹】---无需执行
+2021-02-02 14:31:52,836 - [test_02NB_new_password_02.py-->line:120] - INFO: 用例--【NB授权-普通用户新增-指纹】---无需执行
+2021-02-02 14:31:52,837 - [test_02NB_new_password_02.py-->line:120] - INFO: 用例--【NB授权-临时用户新增-指纹】---无需执行
+2021-02-02 14:31:52,839 - [test_02NB_new_password_02.py-->line:120] - INFO: 用例--【NB授权-劫持用户新增-指纹】---无需执行
+2021-02-02 14:32:40,888 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-管理员新增-指纹】---执行通过
+2021-02-02 14:32:41,416 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-普通用户新增-指纹】---执行通过
+2021-02-02 14:32:41,887 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-临时用户新增-指纹】---执行通过
+2021-02-02 14:32:42,485 - [test_02NB_new_password_02.py-->line:118] - INFO: 用例--【NB授权-劫持用户新增-指纹】---执行通过
+2021-02-02 14:38:24,712 - [test_11NB_delete_all_authorizations.py-->line:90] - INFO: 用例--【删除全部授权】---执行通过

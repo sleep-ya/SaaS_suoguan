@@ -39,14 +39,6 @@ class TestNBNewPassword(unittest.TestCase):
     ##所有开锁授权开始时间
     start_time=conf.get("time","startTime")
     end_time=conf.get("time","endTime180d")
-    endTime_expiration=conf.get("time","endTime_expiration")
-    to_start_the_start_time=conf.get("time","to_start_the_start_time")
-    to_start_the_end_time=conf.get("time","to_start_the_end_time")
-    #指纹包数据获取
-    fingerprint1=conf.get("password","fingerprint1")
-    fingerprint2=conf.get("password","fingerprint2")
-    fingerprint3=conf.get("password","fingerprint3")
-    fingerprint4=conf.get("password","fingerprint4")
     #实际门锁类型获取
     practical_lock_type=eval(conf.get("lock","lock_type"))
     @list_data(cases)
@@ -70,29 +62,6 @@ class TestNBNewPassword(unittest.TestCase):
             if "#end_time#" in item["data"]:
                 end_time=self.end_time
                 item["data"] = item["data"].replace("#end_time#",end_time)
-            #测试特殊时间替换
-            if "#endTime_expiration#" in item["data"]:
-                endTime_expiration=self.endTime_expiration
-                item["data"] = item["data"].replace("#endTime_expiration#",endTime_expiration)
-            if "#to_start_the_start_time#" in item["data"]:
-                to_start_the_start_time=self.to_start_the_start_time
-                item["data"] = item["data"].replace("#to_start_the_start_time#",to_start_the_start_time)
-            if "#to_start_the_end_time#" in item["data"]:
-                to_start_the_end_time=self.to_start_the_end_time
-                item["data"] = item["data"].replace("#to_start_the_end_time#",to_start_the_end_time)
-            #指纹包数据替换
-            if "#fingerprint1#" in item["data"]:
-                fingerprint1=self.fingerprint1
-                item["data"] = item["data"].replace("#fingerprint1#",fingerprint1)
-            if "#fingerprint2#" in item["data"]:
-                fingerprint2=self.fingerprint2
-                item["data"] = item["data"].replace("#fingerprint2#",fingerprint2)
-            if "#fingerprint3#" in item["data"]:
-                fingerprint3=self.fingerprint3
-                item["data"] = item["data"].replace("#fingerprint3#",fingerprint3)
-            if "#fingerprint4#" in item["data"]:
-                fingerprint4=self.fingerprint4
-                item["data"] = item["data"].replace("#fingerprint4#",fingerprint4)
             parms=eval(item["data"])
             #3）请求头
             #类级别前置以获取
@@ -103,7 +72,6 @@ class TestNBNewPassword(unittest.TestCase):
             #第二步：请求接口，获取返回实际参数
             response=requests.request(method,url=url,json=parms,headers=self.token)
             res=response.json()
-
             #第三部：断言
             try:
                 self.assertDictIn(expected, res)
@@ -122,16 +90,17 @@ class TestNBNewPassword(unittest.TestCase):
                     print("请激活门锁，录入开锁信息,45s")
                     time.sleep(45)
                     print("等待结束")
-                else:
-                    print("请激活门锁，录入开锁信息,22s")
+                if item["lock_type"] == 1:
+                    print("请激活门锁，录入开锁信息,30s")
                     time.sleep(22)
                     print("等待结束")
+
         else:
             my_log.info("用例--【{}】---无需执行".format(item['title']))
-    #等待提示语
-    print("请激活设备，等待时间140s")
-    time.sleep(140)#这个是针对上一模块消耗所需时间
-    print("等待时间结束，跳转下一个本地指纹、ic卡录入")#这条提示语是针对本模块
+    # #等待提示语
+    # print("请激活设备，等待时间140s")
+    # time.sleep(140)#这个是针对上一模块消耗所需时间
+    # print("等待时间结束，跳转下一个本地指纹、ic卡录入")#这条提示语是针对本模块
     def assertDictIn(self, expected, res):
         for k, v in expected.items():
             if res.get(k) == v:

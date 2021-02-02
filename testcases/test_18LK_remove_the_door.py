@@ -4,7 +4,7 @@
 # @Email  :1285592010@qq.com
 # @File   : test_18LK_remove_the_door.py
 # @Software:PyCharm
-# @File name Translation:删除门锁（没问题）
+# @File name Translation:删除门锁0201
 import unittest
 import os
 import requests

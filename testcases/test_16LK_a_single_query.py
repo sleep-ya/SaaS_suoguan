@@ -4,7 +4,7 @@
 # @Email  :1285592010@qq.com
 # @File   : test_16LK_a_single_query.py
 # @Software:PyCharm
-# @File name Translation:单条查询（没问题）
+# @File name Translation:单条查询0201
 import unittest
 import os
 import requests
@@ -27,7 +27,6 @@ class TestLKaSingleQuery(unittest.TestCase):
         #2、请求登录接口
         response=requests.post(url=url,json=params)
         res=response.json()
-        print(res)
         #3、提取token，放到请求头中，给后面的用例使用
         token=jsonpath(res,"$..token")[0]
         headers={"token":""}
@@ -44,10 +43,7 @@ class TestLKaSingleQuery(unittest.TestCase):
     #---------------------门锁授权信息------------------------------------
     #门锁IMEI
     IMEI=conf.get("lock","imei")
-    #门锁授权开始和结束时间
-    ##所有开锁授权开始时间
-    start_time=conf.get("time","startTime")
-    end_time=conf.get("time","endTime180d")
+
     #实际门锁类型获取
     practical_lock_type=eval(conf.get("lock","lock_type"))
     @list_data(cases)
@@ -63,14 +59,6 @@ class TestLKaSingleQuery(unittest.TestCase):
             if '#IMEI#' in item['data']:
                 imei = self.IMEI
                 item['data'] = item['data'].replace('#IMEI#',imei)
-            #替换参数开始和结束时间
-            if "#start_time#" in item["data"]:
-                start_time=self.start_time
-                item["data"] = item["data"].replace("#start_time#",start_time)
-
-            if "#end_time#" in item["data"]:
-                end_time=self.end_time
-                item["data"] = item["data"].replace("#end_time#",end_time)
             parms=eval(item["data"])
             #3）请求头
             #类级别前置以获取
