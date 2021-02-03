@@ -73,26 +73,12 @@ class TestNBfreezeAuthorization(unittest.TestCase):
             if "#end_time#" in item["data"]:
                 end_time=self.end_time
                 item["data"] = item["data"].replace("#end_time#",end_time)
-            #替换删除授权所需字段
-            # if item["title"] == "NB_删除授权":
-            #     if "#userId#" in item["data"]:
-            #         userId=self.userId
-            #         item["data"] = item["data"].replace("#userId#",userId)
-            #     if "#usePwId#" in item["data"]:
-            #         usePwId=self.usePwId
-            #         item["data"] = item["data"].replace("#usePwId#",usePwId)
+
             if "#userId#" in item["data"]:
                 userId=self.userId
                 item["data"] = item["data"].replace("#userId#",userId)
-            # if "#usePwId#" in item["data"]:
-            #     usePwId=self.usePwId
-            #     item["data"] = item["data"].replace("#usePwId#",usePwId)
-            #将第一次下发返回的用户ID替换到下一次发授权信息的用户ID#替换授权列表详情中的用户ID
-            # if item["title"] == "NB授权-临时用户新增-IC卡" or item["title"] == "NB授权-授权列表详情":
-            #     if "#userId#" in item["data"]:
-            #         userId = self.userId
-            #         item["data"] = item["data"].replace("#userId#", userId)
             parms=eval(item["data"])
+            print(parms)
             #3）请求头
             #类级别前置以获取
             #4）获取请求方法
@@ -120,20 +106,20 @@ class TestNBfreezeAuthorization(unittest.TestCase):
             else:
                 my_log.info("用例--【{}】---执行通过".format(item['title']))
                 # 通过门锁类型，来预期录入所耗时间
-                if item["lock_type"] == 3:
-                    print("请激活门锁，录入开锁信息,45s")
-                    time.sleep(45)
-                    print("等待结束")
-                else:
-                    print("请激活门锁22s")
+                if item["url"] == "/userAuthorize/add":
+                    print("请激活门锁，录入开锁信息,22s")
                     time.sleep(22)
+                    print("等待结束")
+                if item["url"] == "/userAuthorize/freeze":
+                    print("请激活门锁，录入开锁信息,35s")
+                    time.sleep(35)
+                    print("等待结束")
+                if item["url"] == "/userAuthorize/unFreeze":
+                    print("请激活门锁，录入开锁信息,35s")
+                    time.sleep(35)
                     print("等待结束")
         else:
             my_log.info("用例--【{}】---无需执行".format(item['title']))
-    #等待提示语
-    print("请激活设备，等待时间45s")
-    time.sleep(5)#这个是针对上一模块消耗所需时间
-    print("等待时间结束，门锁冻结解冻")#这条提示语是针对本模块
     def assertDictIn(self, expected, res):
         for k, v in expected.items():
             if res.get(k) == v:
